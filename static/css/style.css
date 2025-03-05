@@ -1,0 +1,122 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 40px);
+    width: calc(100vw - 40px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.image-container {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    position: relative; /* Needed for absolute positioning of character-image */
+}
+
+.book-cover-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure it's behind the character image */
+}
+
+.character-image {
+    position: absolute; /* Allows for overlapping */
+    max-width: 50%; /* Adjust character size as needed */
+    max-height: 50%; /* Adjust character size as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the character */
+    z-index: 2; /* Ensure it's on top of the book-cover image */
+}
+
+.chat-container {
+    width: 35%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-left: 1px solid #ddd;
+}
+
+.chat-container h1 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#chat-log {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 80%; /* Increased vertical space */
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    flex-grow: 1; /* Allow the chat log to take up remaining space */
+}
+
+.input-container {
+    display: flex; /* Use flexbox for input and button */
+    width: 100%; /* Make the input container the same width as chat-log */
+    margin-top: 10px; /* Add margin to separate input from chat log */
+    align-items: center; /* Align items vertically */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+#message-input {
+    flex-grow: 1; /* Allow input to take up available space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+#send-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Add margin to the left of the button */
+}
+
+#send-button:hover {
+    background-color: #0056b3;
+}
+
+/* Loading Indicator */
+.loading {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-left: 10px; /* Add some space between the button and the spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
