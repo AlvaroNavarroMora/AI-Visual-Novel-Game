@@ -12,7 +12,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your_secret_key')
-socketio = SocketIO(app)
+socketio = SocketIO(app, ping_timeout=360, ping_interval=30)
 # Create the openai client
 openai_utils.create_client()
 openai_utils.create_image_client()
